@@ -20,7 +20,7 @@ export class ChatService {
   setupSocketConnection() {
     console.log("setupSocketConnection value: ")
     this.userRequest.subscribe(console.log);
-    this.socket = io("localhost:3000", {
+    this.socket = io("chatsy1.ts.r.appspot.com", {
       extraHeaders: {
         userRequest: this.userRequest.value
       }
