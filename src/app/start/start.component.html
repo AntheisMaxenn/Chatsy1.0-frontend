@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <div class="container">
+        <h1>Welcome to Chatsy 1.0</h1>
+
+        <form [formGroup]="form">
+            <mat-form-field appearance="fill">
+                <mat-label>Your name | alias</mat-label>
+                <input maxlength="23" id="alias" formControlName="alias" matInput>
+            </mat-form-field>
+            <button type="submit" [disabled]="form.invalid" (click)="onSubmit()" mat-raised-button color="primary">
+                Chat Now!</button>
+        </form>
+    </div>
+</div>

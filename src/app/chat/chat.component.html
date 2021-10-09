@@ -1,0 +1,56 @@
+<div class="wrapper">
+    <div class="row1">
+        <h1>Chatsy 1.0</h1>
+        <h1>|</h1>
+        <h3> Hi, {{ currentUser | async}}!</h3>
+    </div>
+
+    <div class="row2">
+
+        <div class="online">
+
+            <!-- TODO: Select user on click, Display "Select user" Inside messages if no user selected -->
+
+            <ng-container *ngFor="let user of online | async; let i = index">
+
+                <li *ngIf="user !== userStatus.value" (click)="this.selectedUser = user; chatWith(user); this.messages[user].newMsg = false;">
+                    {{user}}
+                    <mat-icon *ngIf="hasUnread(user)" color="blue" aria-hidden="false" aria-label="Example home icon">markunread</mat-icon>
+                </li>
+
+
+
+            </ng-container>
+
+        </div>
+
+        <div class="chat">
+
+            <div class="messages">
+                <div class="messagesContainer" *ngIf="selectedUser !== ''">
+
+                    <div class="chatWith">
+                        {{selectedUser}}:
+                    </div>
+
+                    <div class="userMessages">
+
+                        <p *ngFor="let message of messages[selectedUser].convo; let i = index" [ngClass]="{'fromOther': message.to == selectedUser}">
+                            {{ message.msg }}
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="input">
+                <textarea type="text" matInput [(ngModel)]="message" (keyup.enter)="sendMessage()" [disabled]='selectedUser == ""' name="message" id="message" placeholder="Hello 👋"></textarea>
+                <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
