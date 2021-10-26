@@ -1,27 +1,19 @@
-# Frontend
+# CHATSY
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+Realtime chat application where users can make an alias/username to join, then are able to chat with other online users. The server uses Socket.io deployed to a GCP App Engine.
 
-## Development server
+## Backend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project was generated with [Backend](https://github.com/AntheisMaxenn/Chatsy1.0-backend)
 
-## Code scaffolding
+## Site
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Hosted [Here.](https://chatsy-65da0.web.app/start)
 
-## Build
+### Author
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Antheis Maxenn
 
-## Running unit tests
+## License
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+MIT License

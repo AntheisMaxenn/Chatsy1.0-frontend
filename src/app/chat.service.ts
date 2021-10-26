@@ -12,7 +12,6 @@ export class ChatService {
   userRequest: BehaviorSubject<string> = new BehaviorSubject<string>("");
   online: Subject<[]> = new Subject<[]>();
   messages: Subject<{}> = new Subject<{}>();
-  // messagesObj = {};
   socket;
   
   constructor() { }
@@ -39,14 +38,11 @@ export class ChatService {
     });
     
     this.socket.on('message', (data) => {
-      // Data structure {to:string, msg: string, with: string}
-      // Check if already a proprety on 'messages' obj.
 
       if(this.messages[data.with] == null){
         console.log("The true statement")
 
         this.messages[data.with] = {convo: [{"to": data.to, "msg": data.msg}], newMsg: true}; 
-        // this.messagesObj[data.with].convo = [{"to": data.to, "msg": data.msg}]; 
 
         console.log("From true if: " + this.messages);
 
@@ -55,8 +51,6 @@ export class ChatService {
         console.log("The else statement")
         this.messages[data.with].convo.push({"to": data.to, "msg": data.msg})
         this.messages[data.with].newMsg = true;
-        // console.log("From false if: " + this.messages[data.with][1].msg)      
-        // console.log(this.messagesObj)
         this.messages.next(this.messages)
         console.log(this.messages[data.with]['convo'].slice(-1))
 
@@ -71,9 +65,6 @@ export class ChatService {
 
     this.socket.on('disconnect', () => {
       console.log("You have been disconnectd. ");
-      
-      // This will stop the automatic reconnection.
-      // TODO: Configure automatic connect specifications options.
       this.socket.disconnect()
     });
 
